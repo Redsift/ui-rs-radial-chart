@@ -3,6 +3,12 @@ import { D3 as RedsiftD3 } from '@redsift/d3-rs-core';
 class RedsiftRadialChart {
   constructor(el) {
     this.$chart = el.querySelector('#chart');
+
+    if (!this.$chart) {
+        this.$chart = document.createElement('div');
+        el.appendChild(this.$chart);
+    }
+
     this.$legend = el.querySelector('#legend');
     this._createInlineStyles();
     this._legendChart = null;
@@ -30,8 +36,9 @@ class RedsiftRadialChart {
       title: 'Average Band'
     }];
 
-    // this._createInlineStyles();
-    this._createLegend();
+    if (this.$legend) {
+      this._createLegend();
+    }
 
     var fmt = d3.format(",.0f");
     var total = data.reduce(function(p, d) {

@@ -1,19 +1,19 @@
-# ui-rs-hero
+# ui-rs-radial-chart
 
-`ui-rs-hero` is a component for creating a customizable Hero unit for your application. It is provided as a [custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Custom_Elements) for easy integration into your projects.
+`ui-rs-radial-chart` is a component for creating a customizable radial chart for your application, e.g. to show data over time like monthly expenses on taxis over a year. It is provided as a [custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Custom_Elements) for easy integration into your projects.
 
 The component is part of the [RedsiftUI](https://github.com/redsift/redsift-ui) library. For a documentation of the hero unit see the [official RedsiftUI documentation](https://docs.redsift.io/docs/client-code-redsift-ui).
 
 ## Builds
 
-[![Circle CI](https://circleci.com/gh/Redsift/ui-rs-hero.svg?style=svg)](https://circleci.com/gh/Redsift/ui-rs-hero)
+[![Circle CI](https://circleci.com/gh/Redsift/ui-rs-radial-chart.svg?style=svg)](https://circleci.com/gh/Redsift/ui-rs-radial-chart)
 
-A UMD build is available from //static.redsift.io/reusable/ui-rs-hero/latest/ui-rs-hero.umd-es2015.min.js.
+A UMD build is available from //static.redsift.io/reusable/ui-rs-radial-chart/latest/ui-rs-radial-chart.umd-es2015.min.js.
 
 To build locally checkout this repository and
 
 ```bash
-> cd ui-rs-hero
+> cd ui-rs-radial-chart
 > npm install
 > npm run build
 ```
@@ -25,58 +25,90 @@ This will create a `./dist` folder with the Javascript and CSS files.
 First include the CSS file in the `<head>` of your page:
 
 ```html
-<link rel="stylesheet" href="//static.redsift.io/reusable/ui-rs-hero/latest/css/ui-rs-hero.min.css">
-<!-- (optional) include RedsiftUI theme -->
-<link rel="stylesheet" href="//static.redsift.io/reusable/ui-rs-core/latest/css/ui-rs-core.min.css">
+<link rel="stylesheet" href="//static.redsift.io/reusable/ui-rs-radial-chart/latest/css/ui-rs-radial-chart.min.css">
 ```
-
-Note that the `ui-rs-core` theme is also included. This is only to use the typical Redsift style and purely optional. `ui-rs-hero` does **not** depend on `ui-rs-core`.
 
 Additionally include the Javascript on the bottom of the `<body>`:
 
 ```html
-<script src="//static.redsift.io/reusable/ui-rs-hero/latest/js/ui-rs-hero.umd-es2015.min.js"></script>
+<script src="//static.redsift.io/reusable/ui-rs-radial-chart/latest/js/ui-rs-radial-chart.umd-es2015.min.js"></script>
 ```
 
-Including the Javascript already registers the custom element `rs-hero` with the browser.
+Including the Javascript already registers the custom element `rs-radial-chart` with the browser.
 
-Use the following HTML code to create a `rs-hero` element:
+Use the following HTML code to create a `rs-radial-chart` element:
 
 ```html
-<rs-hero header="My Header" bg-class="-bg-hero -effect-darken" scroll-target="#scroll-anchor" sticky-header=".content">
-    <h1>I'm a Hero!</h1>
-</rs-hero>
+<rs-radial-chart></rs-radial-chart>
 ```
 
-`-bg-hero` is a user provided class which defines the background of the hero unit and is optional. If you do not provide a background class a simple grey background is displayed. More detailed information is available in the [official RedsiftUI documentation](https://docs.redsift.io/docs/client-code-redsift-ui). An example CSS background is here:
+You can optionally provide a DIV with the ID `chart` like so:
 
-```css
-.-bg-hero {
-  background-image: url('//static.redsift.io/assets/images/taxi-1.jpg');
-}
+```html
+<rs-radial-chart>
+  <div id="chart"></div>
+</rs-radial-chart>
 ```
 
-### `rs-hero` Configuration Attributes
+If provided the chart will render into this DIV, giving you more control over e.g. styling. If not provided a DIV is created automatically by the element.
 
-* **header**: (optional) A text appearing in the header of the hero component
+Data is added to the chart via Javascript in the following form:
 
-* **bg-class**: (optional) One or multiple comma separated CSS classes applied to the component (due to technical reasons it is not possible to apply classes directly via the `class` attribute). `-bg-taxi` is defining a background image (see below for the CSS code), `-effect-darken` is an effect class to improve the contrast between the background image and the displayed text in the hero. The effect class is provided by RedsiftUI, its counterpart `-effect-lighten` is also available.
+```Javascript
+var chart = document.querySelector('rs-radial-chart');
 
-* **scroll-target**: (optional) If specified an arrow is displayed within the hero which scrolls to the given element on the page. Depending on the height of the whole page a click on the arrow might not cause any action, i.e. if the page is not overflowing.
+var data = [{
+    name: "Jan",
+    value: 3.6732592034888905,
+    color: () => { return '#00ff00'; }
+}, {
+    name: "Feb",
+    value: 3.3835721480313685,
+    color: () => { return '#00ff00'; },
+    classed: "stripe"
+}, {
+    name: "Mar",
+    value: 46.90614320865888,
+    color: () => { return '#00ff11'; }
+}, {
+    name: "Apr",
+    value: 16.262593631395912,
+    color: () => { return '#00ff22'; }
+}, {
+    name: "May",
+    value: 53.40171839979518,
+    color: () => { return '#00ff33'; }
+}, {
+    name: "Jun",
+    value: 15.899117927917139,
+    color: () => { return '#00ff44'; }
+}, {
+    name: "Jul",
+    value: 6.650584346480011,
+    color: () => { return '#00ff55'; }
+}, {
+    name: "Aug",
+    value: 26.689381547140503,
+    color: () => { return '#00ff66'; }
+}, {
+    name: "Sep",
+    value: 34.29461737322482,
+    color: () => { return '#00ff77'; }
+}, {
+    name: "Oct",
+    value: 26.4320733402228,
+    color: () => { return '#00ff88'; }
+}, {
+    name: "Nov",
+    value: 51.88087153647562,
+    color: () => { return '#00ff99'; }
+}, {
+    name: "Dec",
+    value: 54.6380052855129,
+    color: () => { return '#00ffaa'; }
+}];
 
-* **sticky-header**: (optional) If specified the header part of the hero unit will act as a sticky header. When the element specified in the attribute is scrolling out on the top of the page the class `hero-sticky-header--active` is added to the header div, allowing you to style the header when it is showing on its own withouth the hero unit.
-
-The content put within the `rs-hero` element will be displayed vertically and horizontally centered within the hero.
-
-All attributes can be set and changed with ordinary Javascript, e.g.:
-
-```javascript
-var $hero = document.querySelector('rs-hero');
-
-setTimeout(function() {
-  $hero.removeAttribute('sticky-header');
-  $hero.setAttribute('Not Sticky Anymore');
-}, 3000);
+chart.data = data;
 ```
 
 # Development Setup
