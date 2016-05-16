@@ -2,7 +2,7 @@
 
 `ui-rs-radial-chart` is a component for creating a customizable radial chart for your application, e.g. to show data over time like monthly expenses on taxis over a year. It is provided as a [custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Custom_Elements) for easy integration into your projects.
 
-If your browser does *NOT* support *custom elements* natively (see [caniuse](http://caniuse.com/#feat=custom-elements)) you have to install the [web components shim](http://webcomponents.org/) and include it in your project before including this component!
+> If your browser does *NOT* support *custom elements* natively (see [caniuse](http://caniuse.com/#feat=custom-elements)) you have to install the [web components shim](http://webcomponents.org/) and include it in your project before including this component!
 
 The component is part of the [RedsiftUI](https://github.com/redsift/redsift-ui) library. For a documentation of the hero unit see the [official RedsiftUI documentation](https://docs.redsift.io/docs/client-code-redsift-ui).
 
