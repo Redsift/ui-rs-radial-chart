@@ -2,6 +2,8 @@
 
 `ui-rs-radial-chart` is a component for creating a customizable radial chart for your application, e.g. to show data over time like monthly expenses on taxis over a year. It is provided as a [custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Custom_Elements) for easy integration into your projects.
 
+If your browser does *NOT* support *custom elements* natively (see [caniuse](http://caniuse.com/#feat=custom-elements)) you have to install the [web components shim](http://webcomponents.org/) and include it in your project before including this component!
+
 The component is part of the [RedsiftUI](https://github.com/redsift/redsift-ui) library. For a documentation of the hero unit see the [official RedsiftUI documentation](https://docs.redsift.io/docs/client-code-redsift-ui).
 
 ## Builds
@@ -31,10 +33,11 @@ First include the CSS file in the `<head>` of your page:
 Additionally include the Javascript on the bottom of the `<body>`:
 
 ```html
+<script src="//d3js.org/d3.v3.min.js"></script>
 <script src="//static.redsift.io/reusable/ui-rs-radial-chart/latest/js/ui-rs-radial-chart.umd-es2015.min.js"></script>
 ```
 
-Including the Javascript already registers the custom element `rs-radial-chart` with the browser.
+Including the Javascript already registers the custom element `rs-radial-chart` with the browser. Make sure to include [D3](https://d3js.org/) *before* the component, as it depends on it!
 
 Use the following HTML code to create a `rs-radial-chart` element:
 
@@ -110,6 +113,18 @@ var data = [{
 
 chart.data = data;
 ```
+
+#### CAUTION:
+
+If your browser does not support *custom elements* (and only then!) make sure to wrap the above code into the following code:
+
+```javascript
+window.addEventListener('WebComponentsReady', function(e) {
+  // setup code ...
+});
+```
+
+See a description of why this is necessary [here](https://www.polymer-project.org/1.0/docs/migration.html#polymer-ready).
 
 # Development Setup
 

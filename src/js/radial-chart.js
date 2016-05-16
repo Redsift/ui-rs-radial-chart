@@ -1,6 +1,3 @@
-// NOTE: explicitly including the UMD version here. Otherwise the ES2015 version would be included,
-//       which has a dependency on 'bezier-module', which is already included in the UMD bundle.
-// import { D3 as RedsiftD3 } from '@redsift/d3-rs-core/dist/ui-rs-core.umd-es2015';
 import { D3 as RedsiftD3 } from '@redsift/d3-rs-core';
 
 class RedsiftRadialChart {
