@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Radial Chart</title>
+    <meta name="description" content="A radial chart component.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- NOTE: the './dist' folder is served by the browser-sync plugin on '/' -->
+    <link rel="stylesheet" type="text/css" href="/css/ui-rs-radial-chart.min.css">
+
+    <style>
+        .content__container {
+            padding: 1em;
+        }
+
+        rs-radial-chart {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        /* --- Chart customisation --- */
+
+        .stripe {
+            mask: url(#mask-stripe);
+        }
+        /* --- Segment background hover  --- */
+
+        .d3-rc .segment-bg {
+            transition: opacity cubic-bezier(0.175, 0.885, 0.335, 1.155) 800ms;
+        }
+
+        .d3-rc .segment-bg:not(:hover) {
+            opacity: 0.0;
+        }
+
+        .d3-rc .segment-bg:hover {
+            opacity: 1.0;
+        }
+        /* --- Average band and colour  --- */
+
+        .d3-rc .band circle {
+            fill: none;
+            stroke-width: 16px;
+            stroke-opacity: 0.4;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="content__container">
+            <h3>Radial Chart</h3>
+            <rs-radial-chart>
+                <div id="chart"></div>
+            </rs-radial-chart>
+        </div>
+    </div>
+
+    <script src="//d3js.org/d3.v3.min.js"></script>
+    <!-- NOTE: the './dist' folder is served by the browser-sync plugin on '/' -->
+    <script src="/js/ui-rs-radial-chart.umd-es2015.js"></script>
+
+    <script>
+        // With native web components support (e.g. chrome) the WebComponentsReady event will NOT fire.
+        // Web components upgrade synchronously, so there is no need for that. If you have to use the
+        // web components polyfill enable the following event listener:
+        // (see https://www.polymer-project.org/1.0/docs/migration.html#polymer-ready)
+        // window.addEventListener('WebComponentsReady', function(e) {
+        var chart = document.querySelector('rs-radial-chart');
+
+        var data = [{
+            name: "Jan",
+            value: 3.6732592034888905,
+            color: () => { return '#00ff00'; }
+        }, {
+            name: "Feb",
+            value: 3.3835721480313685,
+            color: () => { return '#00ff00'; },
+            classed: "stripe"
+        }, {
+            name: "Mar",
+            value: 46.90614320865888,
+            color: () => { return '#00ff11'; }
+        }, {
+            name: "Apr",
+            value: 16.262593631395912,
+            color: () => { return '#00ff22'; }
+        }, {
+            name: "May",
+            value: 53.40171839979518,
+            color: () => { return '#00ff33'; }
+        }, {
+            name: "Jun",
+            value: 15.899117927917139,
+            color: () => { return '#00ff44'; }
+        }, {
+            name: "Jul",
+            value: 6.650584346480011,
+            color: () => { return '#00ff55'; }
+        }, {
+            name: "Aug",
+            value: 26.689381547140503,
+            color: () => { return '#00ff66'; }
+        }, {
+            name: "Sep",
+            value: 34.29461737322482,
+            color: () => { return '#00ff77'; }
+        }, {
+            name: "Oct",
+            value: 26.4320733402228,
+            color: () => { return '#00ff88'; }
+        }, {
+            name: "Nov",
+            value: 51.88087153647562,
+            color: () => { return '#00ff99'; }
+        }, {
+            name: "Dec",
+            value: 54.6380052855129,
+            color: () => { return '#00ffaa'; }
+        }];
+
+        chart.data = data;
+        // });
+    </script>
+</body>
+
+</html>
