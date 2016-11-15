@@ -1,5 +1,5 @@
 {
-  "name": "@redsift/d3-rs-radial-chart",
+  "name": "@redsift/ui-rs-radial-chart",
   "version": "0.2.1",
   "description": "A customizable radial chart.",
   "keywords": [
@@ -7,13 +7,13 @@
     "redsift-ui",
     "redsift"
   ],
-  "repository": "https://github.com/redsift/d3-rs-radial-chart",
-  "homepage": "https://github.com/redsift/d3-rs-radial-chart",
+  "repository": "https://github.com/redsift/ui-rs-radial-chart",
+  "homepage": "https://github.com/redsift/ui-rs-radial-chart",
   "license": "MIT",
   "author": {
     "name": "Martin Hecher"
   },
-  "main": "./dist/js/d3-rs-radial-chart.umd-es2015.js",
+  "main": "./dist/js/ui-rs-radial-chart.umd-es2015.js",
   "jsnext:main": "./src/index.js",
   "scripts": {
     "start": "npm run build && npm run serve",
