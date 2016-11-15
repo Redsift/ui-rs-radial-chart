@@ -1,6 +1,6 @@
-# d3-rs-radial-chart
+# ui-rs-radial-chart
 
-`d3-rs-radial-chart` is a component for creating a customizable radial chart for your application, e.g. to show data over time like monthly expenses on taxis over a year. It is provided as a [custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Custom_Elements) for easy integration into your projects.
+`ui-rs-radial-chart` is a component for creating a customizable radial chart for your application, e.g. to show data over time like monthly expenses on taxis over a year. It is provided as a [custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Custom_Elements) for easy integration into your projects.
 
 > If your browser does *NOT* support *custom elements* natively (see [caniuse](http://caniuse.com/#feat=custom-elements)) you have to install the [web components shim](http://webcomponents.org/) and include it in your project before including this component!
 
@@ -8,14 +8,14 @@ The component is part of the [RedsiftUI](https://github.com/redsift/redsift-ui) 
 
 ## Builds
 
-[![Circle CI](https://circleci.com/gh/Redsift/d3-rs-radial-chart.svg?style=svg)](https://circleci.com/gh/Redsift/d3-rs-radial-chart)
+[![Circle CI](https://circleci.com/gh/Redsift/ui-rs-radial-chart.svg?style=svg)](https://circleci.com/gh/Redsift/ui-rs-radial-chart)
 
-A UMD build is available from //static.redsift.io/reusable/d3-rs-radial-chart/latest/d3-rs-radial-chart.umd-es2015.min.js.
+A UMD build is available from //static.redsift.io/reusable/ui-rs-radial-chart/latest/ui-rs-radial-chart.umd-es2015.min.js.
 
 To build locally checkout this repository and
 
 ```bash
-> cd d3-rs-radial-chart
+> cd ui-rs-radial-chart
 > npm install
 > npm run build
 ```
@@ -27,14 +27,14 @@ This will create a `./dist` folder with the Javascript and CSS files.
 First include the CSS file in the `<head>` of your page:
 
 ```html
-<link rel="stylesheet" href="//static.redsift.io/reusable/d3-rs-radial-chart/latest/css/d3-rs-radial-chart.min.css">
+<link rel="stylesheet" href="//static.redsift.io/reusable/ui-rs-radial-chart/latest/css/ui-rs-radial-chart.min.css">
 ```
 
 Additionally include the Javascript on the bottom of the `<body>`:
 
 ```html
 <script src="//d3js.org/d3.v3.min.js"></script>
-<script src="//static.redsift.io/reusable/d3-rs-radial-chart/latest/js/d3-rs-radial-chart.umd-es2015.min.js"></script>
+<script src="//static.redsift.io/reusable/ui-rs-radial-chart/latest/js/ui-rs-radial-chart.umd-es2015.min.js"></script>
 ```
 
 Including the Javascript already registers the custom element `rs-radial-chart` with the browser. Make sure to include [D3](https://d3js.org/) *before* the component, as it depends on it!

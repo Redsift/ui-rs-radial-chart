@@ -18,11 +18,11 @@ var defaultConfig = {
 
 var bundleConfig = {
   mainJS: {
-    name: 'd3-rs-radial-chart',
+    name: 'ui-rs-radial-chart',
     indexFile: './src/index.js'
   },
   styles: [{
-    name: 'd3-rs-radial-chart',
+    name: 'ui-rs-radial-chart',
     indexFile: './src/index.import.styl'
   }]
 };
